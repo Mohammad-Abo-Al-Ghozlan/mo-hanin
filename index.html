@@ -1,1312 +1,1711 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamad El Hanin - Maintenance & Electrical Engineer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Base Styles */
-        :root {
-            --primary: #1a2a3a;
-            --secondary: #2c95d3;
-            --accent: #ff6b6b;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-            overflow-x: hidden;
-        }
-        
-        h1, h2, h3, h4, h5 {
-            font-family: 'Roboto Slab', serif;
-            font-weight: 600;
-        }
-        
-        a {
-            text-decoration: none;
-            color: var(--secondary);
-            transition: var(--transition);
-        }
-        
-        a:hover {
-            color: var(--accent);
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        section {
-            padding: 100px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            position: relative;
-        }
-        
-        .section-title h2 {
-            font-size: 2.8rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-            display: inline-block;
-            position: relative;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--secondary);
-            border-radius: 2px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 14px 32px;
-            background: var(--secondary);
-            color: white;
-            border-radius: 50px;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--primary);
-            transition: var(--transition);
-            z-index: -1;
-        }
-        
-        .btn:hover::before {
-            left: 0;
-        }
-        
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-            backdrop-filter: blur(10px);
-        }
-        
-        header.scrolled {
-            padding: 10px 0;
-            background: rgba(255, 255, 255, 0.98);
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo span {
-            color: var(--secondary);
-        }
-        
-        .logo img {
-            height: 40px;
-            margin-right: 10px;
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-menu li {
-            margin-left: 30px;
-        }
-        
-        .nav-menu a {
-            color: var(--dark);
-            font-weight: 600;
-            position: relative;
-            padding: 5px 0;
-        }
-        
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--secondary);
-            transition: var(--transition);
-            border-radius: 3px;
-        }
-        
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-        
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            position: relative;
-            z-index: 1001;
-        }
-        
-        .hamburger span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background: var(--primary);
-            border-radius: 3px;
-            transition: var(--transition);
-        }
-        
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, rgba(26, 42, 58, 0.9) 0%, rgba(44, 149, 211, 0.85) 100%), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a2a3a"/><path d="M0 50 L100 50 M50 0 L50 100" stroke="%232c95d3" stroke-width="1" stroke-opacity="0.2"/></svg>');
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, transparent 20%, #1a2a3a 20%, #1a2a3a 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #1a2a3a 20%, #1a2a3a 80%, transparent 80%, transparent) 25px 25px;
-            background-size: 50px 50px;
-            opacity: 0.05;
-            animation: float 20s linear infinite;
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-            100% {
-                transform: translate(-25px, -25px) rotate(360deg);
-            }
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-        }
-        
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            animation: fadeInUp 1s ease-out 0.2s forwards;
-            opacity: 0;
-        }
-        
-        .hero-btns {
-            display: flex;
-            gap: 20px;
-            animation: fadeInUp 1s ease-out 0.4s forwards;
-            opacity: 0;
-        }
-        
-        .btn-light {
-            background: transparent;
-            border: 2px solid white;
-        }
-        
-        .btn-light::before {
-            background: white;
-        }
-        
-        .btn-light:hover {
-            color: var(--primary);
-        }
-        
-        /* Particle Animation */
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            pointer-events: none;
-        }
-        
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            animation: floatParticle 15s linear infinite;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes floatParticle {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) rotate(720deg);
-                opacity: 0;
-            }
-        }
-        
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        
-        .about-text h3 {
-            font-size: 2.2rem;
-            margin-bottom: 25px;
-            color: var(--primary);
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-        
-        .info-list {
-            list-style: none;
-            margin-top: 30px;
-        }
-        
-        .info-list li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            font-size: 1.1rem;
-        }
-        
-        .info-list i {
-            color: var(--secondary);
-            margin-right: 15px;
-            font-size: 1.3rem;
-            width: 25px;
-            text-align: center;
-        }
-        
-        .about-image {
-            position: relative;
-            perspective: 1000px;
-        }
-        
-        .about-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            transition: var(--transition);
-            transform-style: preserve-3d;
-        }
-        
-        .about-image:hover img {
-            transform: translateY(-15px) rotateX(5deg) rotateY(-5deg);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Experience Section */
-        .experience {
-            background: var(--light);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .experience::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f8f9fa"/><path d="M0 0 L100 100 M100 0 L0 100" stroke="%23e9ecef" stroke-width="1"/></svg>');
-            opacity: 0.3;
-        }
-        
-        .timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background: var(--secondary);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-            border-radius: 3px;
-        }
-        
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            animation: fadeIn 1s ease-in-out;
-        }
-        
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-        
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-        
-        .timeline-content {
-            padding: 25px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            position: relative;
-            transition: var(--transition);
-            border-left: 5px solid var(--secondary);
-        }
-        
-        .timeline-content:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            background: var(--secondary);
-            border: 4px solid white;
-            border-radius: 50%;
-            top: 20px;
-            z-index: 1;
-            box-shadow: 0 0 0 3px var(--secondary);
-        }
-        
-        .timeline-item:nth-child(odd)::after {
-            right: -13px;
-        }
-        
-        .timeline-item:nth-child(even)::after {
-            left: -13px;
-        }
-        
-        .timeline-date {
-            font-weight: 700;
-            color: var(--secondary);
-            margin-bottom: 15px;
-            display: inline-block;
-            padding: 5px 15px;
-            background: rgba(44, 149, 211, 0.1);
-            border-radius: 20px;
-        }
-        
-        .timeline-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        
-        .timeline-company {
-            color: var(--dark);
-            margin-bottom: 15px;
-            font-style: italic;
-        }
-        
-        .timeline-content ul {
-            list-style: none;
-            margin-top: 15px;
-        }
-        
-        .timeline-content li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 25px;
-        }
-        
-        .timeline-content li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-            font-size: 1.2rem;
-        }
-        
-        /* Skills Section */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        
-        .skill-category {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .skill-category::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 0;
-            background: var(--secondary);
-            transition: var(--transition);
-        }
-        
-        .skill-category:hover::before {
-            height: 100%;
-        }
-        
-        .skill-category:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-        }
-        
-        .skill-category h3 {
-            color: var(--primary);
-            margin-bottom: 25px;
-            text-align: center;
-            font-size: 1.6rem;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .skill-category h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: var(--secondary);
-            border-radius: 3px;
-        }
-        
-        .skill-list {
-            list-style: none;
-        }
-        
-        .skill-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-            transition: var(--transition);
-        }
-        
-        .skill-list li:hover {
-            background: rgba(44, 149, 211, 0.05);
-            padding-left: 10px;
-            border-radius: 5px;
-        }
-        
-        .skill-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .skill-list i {
-            color: var(--secondary);
-            margin-right: 15px;
-            font-size: 1.3rem;
-            width: 25px;
-            text-align: center;
-        }
-        
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, var(--primary) 0%, #0d1a25 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 20%) 0 0,
-                        radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 20%) 50px 50px;
-            background-size: 100px 100px;
-            animation: moveBackground 20s linear infinite;
-        }
-        
-        @keyframes moveBackground {
-            from {
-                transform: translate(0, 0);
-            }
-            to {
-                transform: translate(100px, 100px);
-            }
-        }
-        
-        .contact .section-title h2 {
-            color: white;
-        }
-        
-        .contact .section-title h2::after {
-            background: var(--accent);
-        }
-        
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            transition: var(--transition);
-        }
-        
-        .contact-item:hover {
-            transform: translateX(10px);
-        }
-        
-        .contact-icon {
-            width: 70px;
-            height: 70px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 25px;
-            font-size: 1.8rem;
-            transition: var(--transition);
-        }
-        
-        .contact-item:hover .contact-icon {
-            background: var(--accent);
-            transform: scale(1.1);
-        }
-        
-        .contact-text h4 {
-            margin-bottom: 8px;
-            font-size: 1.3rem;
-        }
-        
-        .contact-form {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-            position: relative;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 18px 20px;
-            border: 2px solid #eee;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: var(--transition);
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .form-control:focus {
-            border-color: var(--secondary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(44, 149, 211, 0.2);
-        }
-        
-        textarea.form-control {
-            min-height: 180px;
-            resize: vertical;
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 40px 0 20px;
-            text-align: center;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-        
-        .social-links a {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-            font-size: 1.3rem;
-        }
-        
-        .social-links a:hover {
-            background: var(--secondary);
-            transform: translateY(-8px) rotate(360deg);
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        
-        .is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Progress bars for skills */
-        .skill-bar {
-            height: 8px;
-            background: #eee;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-top: 5px;
-            position: relative;
-        }
-        
-        .skill-progress {
-            height: 100%;
-            background: var(--secondary);
-            border-radius: 4px;
-            position: relative;
-            width: 0;
-            transition: width 2s ease-in-out;
-        }
-        
-        .skill-percent {
-            position: absolute;
-            right: 0;
-            top: -25px;
-            font-size: 0.9rem;
-            color: var(--secondary);
-            font-weight: 600;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-        }
-        
-        @media (max-width: 992px) {
-            .about-content,
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .timeline-item::after {
-                left: 18px;
-            }
-            
-            .timeline-item:nth-child(odd)::after {
-                right: auto;
-            }
-            
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .hero p {
-                font-size: 1.3rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 280px;
-                height: 100vh;
-                background: white;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transition: 0.5s;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-            }
-            
-            .nav-menu.active {
-                right: 0;
-            }
-            
-            .nav-menu li {
-                margin: 20px 0;
-            }
-            
-            .hamburger {
-                display: flex;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2.2rem;
-            }
-            
-            .hero-btns {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            section {
-                padding: 80px 0;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .contact-form {
-                padding: 25px;
-            }
-            
-            .contact-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-                margin-right: 15px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamad El Hanin — Electrical Engineer</title>
+<meta name="description" content="Electrical Engineer specializing in power systems, industrial automation, LV switchgear, and generator control systems. Based in Abu Dhabi, UAE.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --navy: #0a0f1e;
+  --navy-mid: #0e1628;
+  --navy-light: #141f35;
+  --panel: #111827;
+  --graphite: #1e2535;
+  --graphite-light: #2a3347;
+  --border: #1f2d47;
+  --border-bright: #2e4070;
+  --silver: #8fa3c0;
+  --silver-light: #b8cce0;
+  --white: #e8edf5;
+  --white-soft: #c5d1e0;
+  --electric: #1e90ff;
+  --electric-dim: #1565c0;
+  --electric-glow: rgba(30,144,255,0.15);
+  --amber: #f0a500;
+  --amber-dim: #c98a00;
+  --amber-glow: rgba(240,165,0,0.12);
+  --green: #00c896;
+  --green-glow: rgba(0,200,150,0.1);
+  --red: #ff4757;
+  --text-primary: #dde6f0;
+  --text-secondary: #8fa3c0;
+  --text-muted: #4a5f7a;
+  --radius: 6px;
+  --radius-lg: 10px;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.4);
+  --shadow-glow: 0 0 32px rgba(30,144,255,0.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--navy);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 3px; }
+
+/* ─── SELECTION ─── */
+::selection { background: var(--electric-dim); color: #fff; }
+
+/* ─── FOCUS ─── */
+:focus-visible { outline: 2px solid var(--electric); outline-offset: 3px; border-radius: 3px; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(10,15,30,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 5%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--electric);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-brand::before {
+  content: '';
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: var(--electric);
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color var(--transition);
+  font-family: var(--font-mono);
+}
+
+.nav-links a:hover { color: var(--electric); }
+
+.nav-cta {
+  background: transparent;
+  border: 1px solid var(--electric);
+  color: var(--electric) !important;
+  padding: 6px 16px;
+  border-radius: var(--radius);
+  transition: background var(--transition), color var(--transition) !important;
+}
+
+.nav-cta:hover {
+  background: var(--electric) !important;
+  color: #fff !important;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px; height: 2px;
+  background: var(--silver);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+/* ─── HERO ─── */
+#hero {
+  min-height: 100vh;
+  padding-top: 60px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Circuit grid SVG background */
+.circuit-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  opacity: 0.06;
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 30% 50%, rgba(14,22,40,0) 0%, var(--navy) 70%),
+    radial-gradient(ellipse 40% 80% at 80% 30%, rgba(30,144,255,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 40% at 10% 80%, rgba(240,165,0,0.04) 0%, transparent 50%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 5% 60px;
+  width: 100%;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--electric);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px; height: 1px;
+  background: var(--electric);
+}
+
+.hero-name {
+  font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.hero-name em {
+  font-style: normal;
+  color: var(--electric);
+}
+
+.hero-title {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  color: var(--silver-light);
+  margin-bottom: 24px;
+  letter-spacing: 0.02em;
+}
+
+.hero-statement {
+  max-width: 560px;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 40px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: all var(--transition);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--electric);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #2a9fff;
+  box-shadow: 0 0 24px rgba(30,144,255,0.35);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--border-bright);
+  color: var(--silver-light);
+}
+
+.btn-secondary:hover {
+  border-color: var(--electric);
+  color: var(--electric);
+  background: var(--electric-glow);
+  transform: translateY(-1px);
+}
+
+.btn-amber {
+  background: transparent;
+  border: 1px solid var(--amber-dim);
+  color: var(--amber);
+}
+
+.btn-amber:hover {
+  background: var(--amber-glow);
+  border-color: var(--amber);
+  transform: translateY(-1px);
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 13px;
+  background: var(--graphite);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 0.73rem;
+  font-family: var(--font-mono);
+  color: var(--silver);
+  letter-spacing: 0.04em;
+}
+
+.badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  flex-shrink: 0;
+}
+
+/* Waveform decoration */
+.hero-waveform {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* ─── SECTION WRAPPER ─── */
+section {
+  padding: 90px 5%;
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--electric);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 20px; height: 1px;
+  background: var(--electric);
+}
+
+.section-heading {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  margin-bottom: 48px;
+  line-height: 1.2;
+}
+
+/* ─── METRICS ─── */
+#metrics {
+  background: var(--panel);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 60px 5%;
+}
+
+.metrics-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0;
+}
+
+.metric-item {
+  padding: 32px 28px;
+  border-right: 1px solid var(--border);
+  transition: background var(--transition);
+}
+
+.metric-item:last-child { border-right: none; }
+
+.metric-item:hover {
+  background: var(--graphite);
+}
+
+.metric-number {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 6px;
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
+}
+
+.metric-accent { color: var(--electric); }
+.metric-amber { color: var(--amber); }
+.metric-green { color: var(--green); }
+
+.metric-label {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.metric-sub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  font-family: var(--font-mono);
+}
+
+/* ─── ABOUT ─── */
+#about { background: var(--navy); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.about-text p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 0.975rem;
+  margin-bottom: 20px;
+}
+
+.about-text p:last-child { margin-bottom: 0; }
+
+.about-text strong {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.about-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.highlight-card {
+  background: var(--graphite);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--electric);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.highlight-card:hover {
+  border-left-color: var(--amber);
+  background: var(--graphite-light);
+}
+
+.highlight-card h4 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 4px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+.highlight-card p {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ─── EXPERIENCE ─── */
+#experience { background: var(--navy-mid); }
+
+.timeline {
+  position: relative;
+  padding-left: 32px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--electric), var(--border), transparent);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 56px;
+}
+
+.timeline-item:last-child { margin-bottom: 0; }
+
+.timeline-dot {
+  position: absolute;
+  left: -39px;
+  top: 6px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--navy-mid);
+  border: 2px solid var(--electric);
+  transition: all var(--transition);
+}
+
+.timeline-item:hover .timeline-dot {
+  background: var(--electric);
+  box-shadow: 0 0 12px rgba(30,144,255,0.5);
+}
+
+.timeline-item:nth-child(2) .timeline-dot { border-color: var(--amber); }
+.timeline-item:nth-child(2):hover .timeline-dot { background: var(--amber); box-shadow: 0 0 12px rgba(240,165,0,0.5); }
+.timeline-item:nth-child(3) .timeline-dot { border-color: var(--green); }
+.timeline-item:nth-child(3):hover .timeline-dot { background: var(--green); box-shadow: 0 0 12px rgba(0,200,150,0.5); }
+
+.timeline-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.timeline-period {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+.timeline-badge {
+  font-size: 0.65rem;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.badge-current {
+  background: rgba(0,200,150,0.12);
+  color: var(--green);
+  border: 1px solid rgba(0,200,150,0.25);
+}
+
+.badge-completed {
+  background: rgba(240,165,0,0.1);
+  color: var(--amber);
+  border: 1px solid rgba(240,165,0,0.2);
+}
+
+.timeline-role {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+
+.timeline-company {
+  font-size: 0.85rem;
+  color: var(--electric);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.timeline-location {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-bottom: 20px;
+}
+
+.timeline-card {
+  background: var(--graphite);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.timeline-item:hover .timeline-card {
+  border-color: var(--border-bright);
+  box-shadow: var(--shadow-card);
+}
+
+.timeline-duties {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.timeline-duties li {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.timeline-duties li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--electric);
+  font-size: 0.75rem;
+  top: 1px;
+}
+
+.timeline-item:nth-child(2) .timeline-duties li::before { color: var(--amber); }
+.timeline-item:nth-child(3) .timeline-duties li::before { color: var(--green); }
+
+.impact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.impact-chip {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: rgba(30,144,255,0.08);
+  border: 1px solid rgba(30,144,255,0.2);
+  color: var(--electric);
+}
+
+.impact-chip.amber {
+  background: rgba(240,165,0,0.08);
+  border-color: rgba(240,165,0,0.2);
+  color: var(--amber);
+}
+
+/* ─── EXPERTISE ─── */
+#expertise { background: var(--navy); }
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.expertise-card {
+  background: var(--graphite);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.expertise-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--electric);
+  transform: scaleX(0);
+  transition: transform var(--transition);
+  transform-origin: left;
+}
+
+.expertise-card:hover::before { transform: scaleX(1); }
+
+.expertise-card:hover {
+  border-color: var(--border-bright);
+  background: var(--graphite-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+.expertise-card.amber::before { background: var(--amber); }
+.expertise-card.green::before { background: var(--green); }
+
+.expertise-icon {
+  width: 42px; height: 42px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--navy);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.expertise-icon svg { width: 22px; height: 22px; }
+
+.expertise-card h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 10px;
+  letter-spacing: 0.01em;
+}
+
+.expertise-card p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* ─── TOOLS ─── */
+#tools { background: var(--panel); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+.tools-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.tools-group-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.tools-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.tool-tag {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  padding: 6px 14px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--graphite);
+  color: var(--silver-light);
+  transition: all var(--transition);
+  letter-spacing: 0.04em;
+  cursor: default;
+}
+
+.tool-tag:hover {
+  border-color: var(--electric);
+  color: var(--electric);
+  background: var(--electric-glow);
+}
+
+.tool-tag.amber:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+  background: var(--amber-glow);
+}
+
+/* ─── PROJECTS / CAPABILITIES ─── */
+#capabilities { background: var(--navy); }
+
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.cap-card {
+  background: var(--navy-light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px 24px;
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.cap-card:hover {
+  border-color: var(--electric-dim);
+  background: var(--graphite);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+}
+
+.cap-num {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+
+.cap-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.cap-card p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.cap-footer {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cap-tag {
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  padding: 3px 9px;
+  border-radius: 3px;
+  background: var(--graphite);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+/* ─── EDUCATION ─── */
+#education { background: var(--navy-mid); }
+
+.edu-card {
+  background: var(--graphite);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: start;
+  transition: all var(--transition);
+  max-width: 680px;
+}
+
+.edu-card:hover {
+  border-color: var(--border-bright);
+  box-shadow: var(--shadow-card);
+}
+
+.edu-degree {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.edu-institution {
+  font-size: 0.85rem;
+  color: var(--electric);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.edu-faculty {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.edu-period {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background: var(--navy);
+  border: 1px solid var(--border);
+  padding: 5px 13px;
+  border-radius: 20px;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+
+/* ─── CONTACT ─── */
+#contact {
+  background: var(--navy);
+  border-top: 1px solid var(--border);
+}
+
+.contact-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.contact-statement {
+  max-width: 620px;
+  margin-bottom: 48px;
+}
+
+.contact-statement h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.contact-statement p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  background: var(--graphite);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: all var(--transition);
+}
+
+.contact-item:hover {
+  border-color: var(--electric);
+  color: var(--white);
+  background: var(--graphite-light);
+  transform: translateX(3px);
+}
+
+.contact-icon {
+  width: 36px; height: 36px;
+  background: var(--navy);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-icon svg { width: 16px; height: 16px; }
+
+.contact-info { min-width: 0; }
+
+.contact-type {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.contact-value {
+  font-size: 0.82rem;
+  color: var(--white);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--navy-mid);
+  border-top: 1px solid var(--border);
+  padding: 28px 5%;
+  text-align: center;
+}
+
+footer p {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+
+/* ─── ANIMATION ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  section { padding: 60px 5%; }
+  
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 60px; left: 0; right: 0;
+    background: rgba(10,15,30,0.98);
+    flex-direction: column;
+    padding: 24px 5%;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: flex; }
+
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+  .metric-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .metric-item:nth-child(odd) { border-right: 1px solid var(--border); }
+  .metric-item:last-child { border-bottom: none; }
+
+  .edu-card { grid-template-columns: 1fr; }
+  
+  .hero-waveform { display: none; }
+  .timeline { padding-left: 24px; }
+  .timeline-dot { left: -31px; }
+}
+
+@media (max-width: 480px) {
+  .metrics-grid { grid-template-columns: 1fr; }
+  .metric-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .metric-item:nth-child(odd) { border-right: none; }
+}
+
+/* ─── PRINT ─── */
+@media print {
+  nav, .hero-waveform, .hero-bg, .reveal { display: block !important; opacity: 1 !important; transform: none !important; }
+  body { background: #fff; color: #000; }
+  section { padding: 30px 0; }
+  .timeline-card, .expertise-card, .cap-card, .contact-item, .edu-card, .highlight-card {
+    border: 1px solid #ccc !important;
+    background: #f9f9f9 !important;
+    box-shadow: none !important;
+  }
+  a { color: inherit; }
+  .btn { display: none; }
+  .metric-number { color: #1565c0; }
+}
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header id="header">
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <span>M</span>ohamad <span>El Hanin</span>
-            </a>
-            
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="particles" id="particles"></div>
-        <div class="container hero-content">
-            <h1>Maintenance & Electrical Engineer</h1>
-            <p>Specialized in LV Switchgear, Industrial Automation, and Diesel Generators with expertise in PLC programming and system integration</p>
-            <div class="hero-btns">
-                <a href="#contact" class="btn">Get In Touch</a>
-                <a href="#about" class="btn btn-light">Learn More</a>
-            </div>
-        </div>
-    </section>
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#hero">MEH.ENG</a>
+  <ul class="nav-links" id="nav-links" role="list">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#contact" class="nav-cta">Hire</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Me</h2>
-            </div>
-            
-            <div class="about-content">
-                <div class="about-text animate-on-scroll">
-                    <h3>Maintenance & Electrical Engineer</h3>
-                    <p>Experienced Maintenance & Electrical Engineer specialized in LV Switchgear (electrical panels), industrial automation, and diesel generators. Skilled in PLC and generator controllers programming with expertise in maintenance planning, team leadership, supervising technical teams, and troubleshooting.</p>
-                    
-                    <ul class="info-list">
-                        <li><i class="fas fa-calendar-alt"></i> <strong>Date of Birth:</strong> 4 July 2003</li>
-                        <li><i class="fas fa-id-card"></i> <strong>UAE Driving License:</strong> Valid</li>
-                        <li><i class="fas fa-language"></i> <strong>Languages:</strong> Arabic (Native), English (Professional)</li>
-                        <li><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Abu Dhabi, UAE</li>
-                        <li><i class="fas fa-envelope"></i> <strong>Email:</strong> mohammadelhanin7@gmail.com</li>
-                        <li><i class="fas fa-phone"></i> <strong>Phone:</strong> +971 50 375 6368</li>
-                    </ul>
-                    
-                    <a href="#contact" class="btn" style="margin-top: 30px;">Contact Me</a>
-                </div>
-                
-                <div class="about-image animate-on-scroll">
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='400' viewBox='0 0 500 400'><rect width='500' height='400' fill='%232c95d3'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='white'>Professional Profile Image</text></svg>" alt="Mohamad El Hanin">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <div class="section-title">
-                <h2>Professional Experience</h2>
-            </div>
-            
-            <div class="timeline">
-                <div class="timeline-item animate-on-scroll">
-                    <div class="timeline-date">Jan 2024 - Present</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Maintenance & Electrical Engineer</h3>
-                        <h4 class="timeline-company">Specialized Power System Supplies — Abu Dhabi, UAE</h4>
-                        <ul>
-                            <li>Led the design, development, and supervision of assembly, wiring, installation, testing, and commissioning of LV Switchgear (electrical panels)</li>
-                            <li>Designed and developed various electrical panels including ATS/AMF panels, generator control panels, synchronization panels, and fuel system control panels</li>
-                            <li>Performed preventive, periodic, and corrective maintenance on diesel generators and electrical control systems</li>
-                            <li>Diagnosed electrical and mechanical faults in diesel generators and control systems</li>
-                            <li>Programmed PLCs and generator controllers (Schneider, Deep Sea Electronics) for system automation and integration</li>
-                            <li>Conducted generator load testing using large-capacity load banks to ensure system reliability</li>
-                            <li>Created detailed electrical wiring diagrams and schematics using AutoCAD</li>
-                            <li>Participated in technical and commercial estimation for LV panel projects including BOQ preparation and cost analysis</li>
-                            <li>Coordinated with international spare parts suppliers and authorized agents in the UAE</li>
-                            <li>Managed technical and commercial documentation including invoices, quotations, and maintenance records</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="timeline-item animate-on-scroll">
-                    <div class="timeline-date">Aug 2023 - Nov 2023</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Design and Automation Engineer</h3>
-                        <h4 class="timeline-company">Ameenz Makina — Lebanon</h4>
-                        <ul>
-                            <li>Engineered and 3D-modeled automated food production machinery using SolidWorks</li>
-                            <li>Drafted mechanical & electrical drawings with AutoCAD</li>
-                            <li>Designed and installed electrical control panels for food production systems</li>
-                            <li>Programmed Delta PLCs and Variable Frequency Drives (VFDs) for automated systems</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="timeline-item animate-on-scroll">
-                    <div class="timeline-date">Apr 2023 - May 2023</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Electrical Engineer (Internship)</h3>
-                        <h4 class="timeline-company">Automation Control — Lebanon</h4>
-                        <ul>
-                            <li>Installed solar power systems & photovoltaic panels</li>
-                            <li>Installed & maintained electrical panels for residential & commercial projects</li>
-                            <li>Performed maintenance & troubleshooting of solar power systems</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-title">
-                <h2>Key Skills</h2>
-            </div>
-            
-            <div class="skills-container">
-                <div class="skill-category animate-on-scroll">
-                    <h3>Power Systems</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-bolt"></i> LV Switchgear (electrical Panels)</li>
-                        <li><i class="fas fa-cogs"></i> Diesel Generators</li>
-                        <li><i class="fas fa-sun"></i> Solar Power Systems</li>
-                        <li><i class="fas fa-tachometer-alt"></i> Generator Load Testing</li>
-                        <li><i class="fas fa-wrench"></i> Preventive & Corrective Maintenance</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-category animate-on-scroll">
-                    <h3>Automation & Control</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-microchip"></i> PLC Programming (Schneider, Delta, Deep Sea Electronics)</li>
-                        <li><i class="fas fa-sliders-h"></i> VFDs Configuration</li>
-                        <li><i class="fas fa-code"></i> Microcontroller PIC Programming</li>
-                        <li><i class="fas fa-project-diagram"></i> System Integration</li>
-                        <li><i class="fas fa-cogs"></i> Controller Programming & Configuration</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-category animate-on-scroll">
-                    <h3>Design & Modeling</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-drafting-compass"></i> AutoCAD (Electrical & Mechanical)</li>
-                        <li><i class="fas fa-cube"></i> SolidWorks (3D Modeling)</li>
-                        <li><i class="fas fa-pencil-ruler"></i> Electrical Wiring Diagrams</li>
-                        <li><i class="fas fa-project-diagram"></i> System Schematics</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-category animate-on-scroll">
-                    <h3>Software & Tools</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-desktop"></i> HAP, QuickBooks, Microsoft Office</li>
-                        <li><i class="fas fa-chart-line"></i> PSIM, LTSPICE, MATLAB</li>
-                        <li><i class="fas fa-calculator"></i> Technical & Commercial Estimation</li>
-                        <li><i class="fas fa-file-alt"></i> Documentation Management</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
-            </div>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="contact-item animate-on-scroll">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Location</h4>
-                            <p>Abu Dhabi, UAE</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item animate-on-scroll">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Email</h4>
-                            <p>mohammadelhanin7@gmail.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item animate-on-scroll">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Phone</h4>
-                            <p>+971 50 375 6368</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item animate-on-scroll">
-                        <div class="contact-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>LinkedIn</h4>
-                            <p>linkedin.com/in/mohamad-el-hanin-3a7399241</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form animate-on-scroll">
-                    <form id="contactForm">
-  <div class="form-group">
-    <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+<!-- HERO -->
+<section id="hero" aria-label="Introduction">
+  <div class="hero-bg">
+    <!-- Circuit-grid SVG -->
+    <svg class="circuit-svg" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Grid lines -->
+      <defs>
+        <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+          <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#1e90ff" stroke-width="0.5"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)"/>
+      <!-- Circuit paths -->
+      <path d="M 120 180 L 300 180 L 300 240 L 480 240" fill="none" stroke="#1e90ff" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="300" cy="180" r="4" fill="#1e90ff"/>
+      <circle cx="300" cy="240" r="4" fill="#1e90ff"/>
+      <path d="M 600 120 L 600 300 L 760 300" fill="none" stroke="#1e90ff" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="600" cy="120" r="4" fill="#f0a500"/>
+      <rect x="760" y="290" width="40" height="20" fill="none" stroke="#1e90ff" stroke-width="1.5"/>
+      <path d="M 800 300 L 900 300 L 900 180 L 1100 180" fill="none" stroke="#1e90ff" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="1100" cy="180" r="5" fill="none" stroke="#f0a500" stroke-width="1.5"/>
+      <path d="M 200 420 L 200 540 L 400 540 L 400 600" fill="none" stroke="#1e90ff" stroke-width="1" stroke-linecap="round"/>
+      <circle cx="200" cy="420" r="3" fill="#1e90ff"/>
+      <path d="M 700 480 L 850 480 L 850 380 L 1050 380" fill="none" stroke="#1e90ff" stroke-width="1" stroke-linecap="round"/>
+      <circle cx="850" cy="480" r="3" fill="#f0a500"/>
+      <!-- Resistor symbol -->
+      <path d="M 480 240 L 510 240 L 515 228 L 525 252 L 535 228 L 545 252 L 555 228 L 560 240 L 600 240" fill="none" stroke="#1e90ff" stroke-width="1.5"/>
+      <!-- Component box -->
+      <rect x="900" y="500" width="80" height="50" fill="none" stroke="#1e90ff" stroke-width="1"/>
+      <line x1="910" y1="510" x2="970" y2="540" stroke="#1e90ff" stroke-width="0.8"/>
+      <path d="M 900 525 L 880 525" fill="none" stroke="#1e90ff" stroke-width="1.5"/>
+      <path d="M 980" fill="none"/>
+      <!-- Waveform -->
+      <path d="M 100 650 L 140 650 L 160 600 L 200 700 L 240 600 L 280 700 L 320 600 L 360 700 L 380 650 L 450 650" fill="none" stroke="#f0a500" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <div class="hero-gradient"></div>
   </div>
-  <div class="form-group">
-    <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+
+  <!-- Waveform decoration right -->
+  <div class="hero-waveform" aria-hidden="true">
+    <svg width="420" height="300" viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0 150 L 40 150 L 60 60 L 100 240 L 140 60 L 180 240 L 220 60 L 260 240 L 300 60 L 340 240 L 360 150 L 420 150" fill="none" stroke="#1e90ff" stroke-width="2" stroke-linecap="round"/>
+      <path d="M 0 190 L 40 190 L 60 130 L 100 250 L 130 130 L 160 250 L 190 130 L 220 250 L 250 190 L 420 190" fill="none" stroke="#f0a500" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+    </svg>
   </div>
-  <div class="form-group">
-    <input type="text" id="subject" class="form-control" placeholder="Subject" required>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Electrical Engineer — Abu Dhabi, UAE</div>
+    <h1 class="hero-name">Mohamad<br><em>El Hanin</em></h1>
+    <p class="hero-title">Power Systems &amp; Industrial Automation</p>
+    <p class="hero-statement">
+      Delivering mission-critical power infrastructure with zero tolerance for downtime. From LV switchgear design to PLC programming and generator commissioning — built for environments where reliability isn't optional.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="mailto:mohammadelhanin7@gmail.com" aria-label="Send email to Mohamad">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Email Me
+      </a>
+      <a class="btn btn-secondary" href="tel:+971503756368" aria-label="Call Mohamad">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 12 19.79 19.79 0 0 1 1.08 3.38 2 2 0 0 1 3.04 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
+        +971 50 375 6368
+      </a>
+      <a class="btn btn-amber" href="https://linkedin.com/in/mohamadelhanin" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+    </div>
+
+    <div class="hero-badges" role="list" aria-label="Status and credentials">
+      <span class="badge" role="listitem"><span class="badge-dot"></span>UAE Residency Visa</span>
+      <span class="badge" role="listitem"><span class="badge-dot"></span>Valid UAE Driving License</span>
+      <span class="badge" role="listitem"><span class="badge-dot"></span>Open to Relocation — UAE</span>
+      <span class="badge" role="listitem"><span class="badge-dot" style="background:var(--electric)"></span>Available Now</span>
+    </div>
   </div>
-  <div class="form-group">
-    <textarea id="message" class="form-control" placeholder="Your Message" required></textarea>
+</section>
+
+<!-- METRICS -->
+<section id="metrics" aria-label="Key performance metrics">
+  <div class="metrics-grid">
+    <div class="metric-item reveal">
+      <div class="metric-number metric-accent">15</div>
+      <div class="metric-label">Complex panels<br>delivered</div>
+      <div class="metric-sub">IN 30 DAYS</div>
+    </div>
+    <div class="metric-item reveal reveal-delay-1">
+      <div class="metric-number" style="color:var(--white)">35<span class="metric-accent">+</span></div>
+      <div class="metric-label">Generators<br>maintained</div>
+      <div class="metric-sub">INCL. TMKN TOWERS</div>
+    </div>
+    <div class="metric-item reveal reveal-delay-2">
+      <div class="metric-number metric-green">99<span style="font-size:1.4rem">%</span></div>
+      <div class="metric-label">Reliability rate<br>maintained</div>
+      <div class="metric-sub">UPTIME RECORD</div>
+    </div>
+    <div class="metric-item reveal reveal-delay-3">
+      <div class="metric-number metric-amber">2</div>
+      <div class="metric-label">High-profile<br>clients</div>
+      <div class="metric-sub">ETISALAT · MoD UAE</div>
+    </div>
+    <div class="metric-item reveal reveal-delay-4">
+      <div class="metric-number" style="color:var(--white)">PLC<span class="metric-accent">+</span></div>
+      <div class="metric-label">Controller<br>programming</div>
+      <div class="metric-sub">SCHNEIDER · DEEP SEA · DELTA</div>
+    </div>
   </div>
-  <button type="submit" class="btn">Send Message</button>
-</form>
+</section>
+
+<!-- ABOUT -->
+<section id="about" aria-labelledby="about-heading">
+  <div class="section-inner">
+    <div class="section-label">Profile</div>
+    <h2 class="section-heading" id="about-heading">Built for critical power environments</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          Electrical engineers who can design a panel, program its controller, commission the system, and maintain it under pressure are rare. <strong>Mohamad El Hanin</strong> operates across the full lifecycle — from schematic design and assembly through to fault diagnosis and long-term maintenance.
+        </p>
+        <p>
+          At <strong>Specialized Power System Supplies</strong> in Abu Dhabi, Mohamad has been responsible for delivering LV switchgear panels — including ATS/AMF, generator control, and fuel systems — for clients where power availability is non-negotiable. Projects for <strong>Etisalat</strong> and the <strong>UAE Ministry of Defense</strong> demand that standard.
+        </p>
+        <p>
+          He brings programming depth across <strong>Schneider PLCs</strong>, <strong>Deep Sea generator controllers</strong>, and <strong>Delta PLCs</strong>, alongside hands-on capability in AutoCAD, SolidWorks, MATLAB, and simulation tools. His background spans industrial automation, solar PV integration, and the ability to prepare full technical proposals, BOQs, and commissioning documentation.
+        </p>
+      </div>
+      <div class="about-highlights reveal reveal-delay-2">
+        <div class="highlight-card">
+          <h4>ATS / AMF Panels</h4>
+          <p>Design, assembly, testing, and commissioning of automatic transfer and mains failure panels for critical facilities.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>Generator Control Systems</h4>
+          <p>Deep Sea Electronics programming and load bank testing across 35+ diesel generator sets.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>Industrial PLC Automation</h4>
+          <p>Schneider and Delta PLC programming for control panels and food production machinery.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>Technical Proposals & BOQ</h4>
+          <p>Full documentation capability — bids, BOQs, supplier coordination, and commissioning reports.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" aria-labelledby="exp-heading">
+  <div class="section-inner">
+    <div class="section-label">Work History</div>
+    <h2 class="section-heading" id="exp-heading">Experience &amp; Track Record</h2>
+
+    <div class="timeline">
+
+      <!-- Role 1 -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="timeline-meta">
+          <span class="timeline-period">Dec 2023 – Present</span>
+          <span class="timeline-badge badge-current">Current</span>
+        </div>
+        <div class="timeline-role">Electrical Engineer</div>
+        <div class="timeline-company">Specialized Power System Supplies (SPSS)</div>
+        <div class="timeline-location">Abu Dhabi, UAE</div>
+        <div class="timeline-card">
+          <ul class="timeline-duties">
+            <li>Designed and executed LV switchgear panels including ATS/AMF, generator control, and fuel system panels from schematic through commissioning.</li>
+            <li>Delivered projects for Etisalat and the UAE Ministry of Defense, managing panel assembly, testing, and acceptance.</li>
+            <li>Supervised schematic design, component assembly, testing, and commissioning workflows across the team.</li>
+            <li>Delivered 15 complex control panels within a 30-day production window.</li>
+            <li>Performed preventive and corrective maintenance, fault diagnosis, troubleshooting, and load bank testing across 35+ generator sets including TMKN Towers.</li>
+            <li>Maintained 99% operational reliability across the managed generator fleet.</li>
+            <li>Programmed Schneider PLCs and Deep Sea generator controllers for automation and protection.</li>
+            <li>Prepared technical proposals, bids, BOQs, commissioning reports, and managed supplier coordination.</li>
+          </ul>
+          <div class="impact-row">
+            <span class="impact-chip">15 panels / 30 days</span>
+            <span class="impact-chip">99% uptime</span>
+            <span class="impact-chip">35+ generators</span>
+            <span class="impact-chip amber">Etisalat</span>
+            <span class="impact-chip amber">UAE MoD</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Role 2 -->
+      <div class="timeline-item reveal reveal-delay-1">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="timeline-meta">
+          <span class="timeline-period">Aug 2023 – Nov 2023</span>
+          <span class="timeline-badge badge-completed">Completed</span>
+        </div>
+        <div class="timeline-role">Automation Engineer</div>
+        <div class="timeline-company">Ameenz Makina</div>
+        <div class="timeline-location">Lebanon</div>
+        <div class="timeline-card">
+          <ul class="timeline-duties">
+            <li>3D-modeled 5 food production machines using SolidWorks, producing detailed mechanical models for manufacturing.</li>
+            <li>Drafted electrical and mechanical drawings using AutoCAD for panel and machinery layout.</li>
+            <li>Designed and installed electrical control panels for automated production line equipment.</li>
+            <li>Programmed Delta PLCs and VFDs to control machine sequencing, speed, and safety interlocks.</li>
+            <li>Supported production efficiency improvements through automated machinery integration.</li>
+          </ul>
+          <div class="impact-row">
+            <span class="impact-chip amber">Delta PLC</span>
+            <span class="impact-chip amber">VFD Programming</span>
+            <span class="impact-chip amber">SolidWorks</span>
+            <span class="impact-chip amber">AutoCAD</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Role 3 -->
+      <div class="timeline-item reveal reveal-delay-2">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="timeline-meta">
+          <span class="timeline-period">Apr 2023 – May 2023</span>
+          <span class="timeline-badge badge-completed">Internship</span>
+        </div>
+        <div class="timeline-role">Electrical Engineer Intern</div>
+        <div class="timeline-company">Automation Control</div>
+        <div class="timeline-location">Lebanon</div>
+        <div class="timeline-card">
+          <ul class="timeline-duties">
+            <li>Assembled and integrated solar PV systems and electrical panels on live installations.</li>
+            <li>Performed maintenance and fault troubleshooting to maximize system uptime and performance.</li>
+          </ul>
+          <div class="impact-row">
+            <span class="impact-chip" style="border-color:rgba(0,200,150,0.2);background:rgba(0,200,150,0.06);color:var(--green)">Solar PV</span>
+            <span class="impact-chip" style="border-color:rgba(0,200,150,0.2);background:rgba(0,200,150,0.06);color:var(--green)">Electrical Panels</span>
+            <span class="impact-chip" style="border-color:rgba(0,200,150,0.2);background:rgba(0,200,150,0.06);color:var(--green)">Troubleshooting</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise" aria-labelledby="expertise-heading">
+  <div class="section-inner">
+    <div class="section-label">Skill Domains</div>
+    <h2 class="section-heading" id="expertise-heading">Engineering Expertise</h2>
+    <div class="expertise-grid">
+
+      <div class="expertise-card reveal">
+        <div class="expertise-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e90ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="m6 10 2-2 2 2 2-2 2 2"/></svg>
+        </div>
+        <h3>Power Systems</h3>
+        <p>LV switchgear design, ATS/AMF panel engineering, diesel generator systems, fuel panel integration, and power distribution for critical facilities.</p>
+      </div>
+
+      <div class="expertise-card reveal reveal-delay-1">
+        <div class="expertise-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e90ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3>Industrial Automation</h3>
+        <p>PLC programming (Schneider, Delta), VFD configuration, automated machinery integration, sequencing logic, and safety interlock design.</p>
+      </div>
+
+      <div class="expertise-card amber reveal reveal-delay-2">
+        <div class="expertise-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0a500" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+        </div>
+        <h3>Control Panels</h3>
+        <p>End-to-end panel production: schematic design, component selection, assembly supervision, wiring, and acceptance testing to specification.</p>
+      </div>
+
+      <div class="expertise-card reveal reveal-delay-3">
+        <div class="expertise-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e90ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+        </div>
+        <h3>Testing &amp; Commissioning</h3>
+        <p>Generator load bank testing, insulation resistance testing, panel factory acceptance tests, and full site commissioning with documentation.</p>
+      </div>
+
+      <div class="expertise-card green reveal reveal-delay-4">
+        <div class="expertise-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00c896" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        </div>
+        <h3>CAD &amp; Simulation</h3>
+        <p>AutoCAD 2D/3D electrical and mechanical drafting, SolidWorks 3D modeling, MATLAB simulation, PSIM power electronics, and LTSpice circuit analysis.</p>
+      </div>
+
+      <div class="expertise-card amber reveal reveal-delay-5">
+        <div class="expertise-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0a500" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3>Project Execution</h3>
+        <p>Technical proposal preparation, BOQ compilation, bid management, supplier coordination, client relations, and commissioning report delivery.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools" aria-labelledby="tools-heading">
+  <div class="section-inner">
+    <div class="section-label">Technical Stack</div>
+    <h2 class="section-heading" id="tools-heading">Tools &amp; Technologies</h2>
+    <div class="tools-groups">
+
+      <div class="reveal">
+        <div class="tools-group-label">Power &amp; Control Hardware</div>
+        <div class="tools-tags">
+          <span class="tool-tag">LV Switchgear</span>
+          <span class="tool-tag">ATS / AMF Panels</span>
+          <span class="tool-tag">Diesel Generators</span>
+          <span class="tool-tag">Deep Sea Electronics</span>
+          <span class="tool-tag">Generator Controllers</span>
+          <span class="tool-tag">VFDs</span>
+          <span class="tool-tag">Solar PV Systems</span>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="tools-group-label">PLC &amp; Automation</div>
+        <div class="tools-tags">
+          <span class="tool-tag">Schneider PLC</span>
+          <span class="tool-tag">Delta PLC</span>
+          <span class="tool-tag amber">Ladder Logic</span>
+          <span class="tool-tag amber">Control Panel Programming</span>
+          <span class="tool-tag amber">Safety Interlocks</span>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <div class="tools-group-label">Design &amp; Simulation Software</div>
+        <div class="tools-tags">
+          <span class="tool-tag">AutoCAD 2D/3D</span>
+          <span class="tool-tag">SolidWorks</span>
+          <span class="tool-tag">MATLAB</span>
+          <span class="tool-tag">PSIM</span>
+          <span class="tool-tag">LTSpice</span>
+          <span class="tool-tag">Microsoft Office</span>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-3">
+        <div class="tools-group-label">Operations &amp; Documentation</div>
+        <div class="tools-tags">
+          <span class="tool-tag">BOQ Preparation</span>
+          <span class="tool-tag">Bid & Tendering</span>
+          <span class="tool-tag">Technical Proposals</span>
+          <span class="tool-tag">Load Bank Testing</span>
+          <span class="tool-tag">Fault Diagnosis</span>
+          <span class="tool-tag">Preventive Maintenance</span>
+          <span class="tool-tag">Commissioning Reports</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section id="capabilities" aria-labelledby="cap-heading">
+  <div class="section-inner">
+    <div class="section-label">Delivery Areas</div>
+    <h2 class="section-heading" id="cap-heading">Project Capabilities</h2>
+    <div class="capabilities-grid">
+
+      <div class="cap-card reveal">
+        <div class="cap-num">CAP — 01</div>
+        <h3>LV Switchgear &amp; Control Panels</h3>
+        <p>Full-cycle panel engineering: design, material specification, assembly supervision, factory acceptance testing, and site commissioning of LV distribution, ATS, AMF, and protection panels.</p>
+        <div class="cap-footer">
+          <span class="cap-tag">ATS / AMF</span>
+          <span class="cap-tag">LV MCC</span>
+          <span class="cap-tag">Protection Relays</span>
+          <span class="cap-tag">FAT / SAT</span>
+        </div>
+      </div>
+
+      <div class="cap-card reveal reveal-delay-1">
+        <div class="cap-num">CAP — 02</div>
+        <h3>Generator Control &amp; Load Testing</h3>
+        <p>Programming Deep Sea generator controllers, configuring parallel operation and load sharing, performing load bank testing, and maintaining 35+ generator sets to 99% reliability standards.</p>
+        <div class="cap-footer">
+          <span class="cap-tag">Deep Sea DSE</span>
+          <span class="cap-tag">Load Bank</span>
+          <span class="cap-tag">PM Planning</span>
+          <span class="cap-tag">Fuel Systems</span>
+        </div>
+      </div>
+
+      <div class="cap-card reveal reveal-delay-2">
+        <div class="cap-num">CAP — 03</div>
+        <h3>Industrial Automation for Machinery</h3>
+        <p>PLC and VFD programming for production machinery, control panel design and installation, 3D modeling of machine structures, and CAD documentation for manufacturing teams.</p>
+        <div class="cap-footer">
+          <span class="cap-tag">Schneider PLC</span>
+          <span class="cap-tag">Delta PLC</span>
+          <span class="cap-tag">VFD Config</span>
+          <span class="cap-tag">SolidWorks</span>
+        </div>
+      </div>
+
+      <div class="cap-card reveal reveal-delay-3">
+        <div class="cap-num">CAP — 04</div>
+        <h3>Solar PV &amp; Panel Integration</h3>
+        <p>Assembly and integration of solar PV systems with electrical panel infrastructure, on-site commissioning, performance testing, and corrective maintenance for maximum energy uptime.</p>
+        <div class="cap-footer">
+          <span class="cap-tag">Solar PV</span>
+          <span class="cap-tag">Grid Tie</span>
+          <span class="cap-tag">Electrical Panels</span>
+          <span class="cap-tag">Commissioning</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" aria-labelledby="edu-heading">
+  <div class="section-inner">
+    <div class="section-label">Academic Background</div>
+    <h2 class="section-heading" id="edu-heading">Education</h2>
+    <div class="edu-card reveal">
+      <div>
+        <div class="edu-degree">Bachelor in Maintenance &amp; Industrial Engineering</div>
+        <div class="edu-institution">Lebanese University</div>
+        <div class="edu-faculty">Faculty of Technology</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="cap-tag">Power Systems</span>
+          <span class="cap-tag">Industrial Automation</span>
+          <span class="cap-tag">Control Systems</span>
+          <span class="cap-tag">Electrical Machines</span>
+        </div>
+      </div>
+      <div class="edu-period">2020 – 2023</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" aria-labelledby="contact-heading">
+  <div class="contact-inner">
+    <div class="section-label">Get In Touch</div>
+    <div class="contact-statement">
+      <h2 id="contact-heading">Open to power systems, automation &amp; commissioning roles across the UAE.</h2>
+      <p>Whether you're an MEP contractor, industrial automation firm, power systems specialist, or generator service company — reach out directly. UAE residency visa and valid driving license held.</p>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-item reveal" href="mailto:mohammadelhanin7@gmail.com" aria-label="Email address">
+        <div class="contact-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1e90ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </div>
+        <div class="contact-info">
+          <div class="contact-type">Email</div>
+          <div class="contact-value">mohammadelhanin7@gmail.com</div>
+        </div>
+      </a>
+      <a class="contact-item reveal reveal-delay-1" href="tel:+971503756368" aria-label="Phone number">
+        <div class="contact-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1e90ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 12 19.79 19.79 0 0 1 1.08 3.38 2 2 0 0 1 3.04 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
+        </div>
+        <div class="contact-info">
+          <div class="contact-type">Phone / WhatsApp</div>
+          <div class="contact-value">+971 50 375 6368</div>
+        </div>
+      </a>
+      <a class="contact-item reveal reveal-delay-2" href="https://linkedin.com/in/mohamadelhanin" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+        <div class="contact-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#f0a500" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        <div class="contact-info">
+          <div class="contact-type">LinkedIn</div>
+          <div class="contact-value">mohamadelhanin</div>
+        </div>
+      </a>
+      <div class="contact-item reveal reveal-delay-3" style="cursor:default;pointer-events:none;">
+        <div class="contact-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00c896" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="contact-info">
+          <div class="contact-type">Location</div>
+          <div class="contact-value">Abu Dhabi, UAE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Mohamad El Hanin — Electrical Engineer &nbsp;·&nbsp; Abu Dhabi, UAE &nbsp;·&nbsp; Portfolio 2026</p>
+</footer>
 
 <script>
-  document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+// ─── NAV TOGGLE ───
+const toggle = document.getElementById('nav-toggle');
+const navLinks = document.getElementById('nav-links');
 
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let subject = document.getElementById("subject").value;
-    let message = document.getElementById("message").value;
+toggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', open);
+});
 
-    let phoneNumber = "971503756368"; // without + sign
-    let text = `*New Contact Form Message*%0A
-👤 Name: ${name}%0A
-📧 Email: ${email}%0A
-📝 Subject: ${subject}%0A
-💬 Message:%0A${message}`;
-
-    let url = `https://wa.me/${phoneNumber}?text=${text}`;
-    window.open(url, "_blank");
+// Close nav on link click
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    toggle.setAttribute('aria-expanded', false);
   });
+});
+
+// ─── SCROLL REVEAL ───
+const reveals = document.querySelectorAll('.reveal');
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+reveals.forEach(el => revealObserver.observe(el));
+
+// ─── HERO ITEMS ALWAYS VISIBLE ───
+document.querySelectorAll('#hero .reveal').forEach(el => el.classList.add('visible'));
+
+// ─── SMOOTH NAV HIGHLIGHT ───
+const sections = document.querySelectorAll('section[id]');
+const navAnchors = document.querySelectorAll('.nav-links a');
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navAnchors.forEach(a => {
+        a.style.color = '';
+        if (a.getAttribute('href') === '#' + entry.target.id) {
+          a.style.color = 'var(--electric)';
+        }
+      });
+    }
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+
+sections.forEach(s => sectionObserver.observe(s));
+
+// ─── COUNTER ANIMATION ───
+function animateCounter(el, target, suffix) {
+  let start = 0;
+  const duration = 1400;
+  const step = (timestamp) => {
+    if (!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(eased * target) + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+const metricsSection = document.getElementById('metrics');
+let counted = false;
+
+const metricObserver = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting && !counted) {
+    counted = true;
+    // 15 panels
+    const n1 = document.querySelector('.metric-accent');
+    if (n1) animateCounter(n1, 15, '');
+    // 35+ generators (the number span)
+    const n2 = document.querySelectorAll('.metric-number')[1];
+    if (n2) {
+      let start = 0;
+      const duration = 1400;
+      const step = (timestamp) => {
+        if (!start) start = timestamp;
+        const p = Math.min((timestamp - start) / duration, 1);
+        const v = Math.floor((1 - Math.pow(1 - p, 3)) * 35);
+        n2.innerHTML = v + '<span class="metric-accent">+</span>';
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+    // 99% reliability
+    const n3 = document.querySelector('.metric-green');
+    if (n3) {
+      let start = 0;
+      const duration = 1600;
+      const step = (timestamp) => {
+        if (!start) start = timestamp;
+        const p = Math.min((timestamp - start) / duration, 1);
+        const v = Math.floor((1 - Math.pow(1 - p, 3)) * 99);
+        n3.innerHTML = v + '<span style="font-size:1.4rem">%</span>';
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+  }
+}, { threshold: 0.3 });
+
+metricObserver.observe(metricsSection);
+
+// ─── REDUCED MOTION RESPECT ───
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  reveals.forEach(el => el.classList.add('visible'));
+}
 </script>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="linkedin.com/in/mohamad-el-hanin-3a7399241" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="mailto:mohammadelhanin7@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-                <a target="_blank" href="https://wa.me/971503756368"><i class="fab fa-whatsapp"></i></a>
-                <a href="mo-cv.docx"><i class="fas fa-file-pdf"></i></a>
-            </div>
-            <p>&copy; 2025 Mohamad El Hanin. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Navigation toggle
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-        
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
-        });
-        
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        
-        // Create particles for hero section
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Random properties
-                const size = Math.random() * 5 + 2;
-                const posX = Math.random() * 100;
-                const delay = Math.random() * 15;
-                const duration = Math.random() * 10 + 15;
-                
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${posX}%`;
-                particle.style.animationDelay = `${delay}s`;
-                particle.style.animationDuration = `${duration}s`;
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
-        
-        // Scroll animation
-        const animateElements = document.querySelectorAll('.animate-on-scroll');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-        
-        animateElements.forEach(element => {
-            observer.observe(element);
-        });
-        
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('Thank you for your message. I will get back to you soon!');
-                contactForm.reset();
-            });
-        }
-        
-        // Initialize when page loads
-        window.addEventListener('load', () => {
-            createParticles();
-        });
-    </script>
 </body>
 </html>
